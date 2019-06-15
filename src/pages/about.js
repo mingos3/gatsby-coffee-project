@@ -4,13 +4,15 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BackgroundSection from '../components/Globals/BackgroundSection';
-import Values from '../components/Home/Values';
+import Info from '../components/Home/Info';
 import Footer from '../components/Globals/Footer';
+import Values from '../components/Home/Values';
 
-const IndexPage = ({ data }) => (
+const AboutPage = ({ data }) => (
 	<Layout>
-		<SEO title="Home" />
-		<BackgroundSection img={data.img.childImageSharp.fluid} title="regular coffee" />
+		<SEO title="About" />
+		<BackgroundSection img={data.img.childImageSharp.fluid} title="about us" styleClass="about-background" />
+		<Info />
 		<Values />
 		<Footer />
 	</Layout>
@@ -18,7 +20,7 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
 	{
-		img: file(relativePath: { eq: "default-background.jpeg" }) {
+		img: file(relativePath: { eq: "about-background.jpeg" }) {
 			childImageSharp {
 				fluid {
 					...GatsbyImageSharpFluid_tracedSVG
@@ -28,4 +30,4 @@ export const query = graphql`
 	}
 `;
 
-export default IndexPage;
+export default AboutPage;
